@@ -8,10 +8,10 @@ from snowflake.connector.pandas_tools import write_pandas
 #Module to create the snowflake connection and return the connection objects
 def create_connection():
    conn = snow.connect(user="testuser",
-   password="*****!",
-   account="mysnowflake_accout",
-   warehouse="MY_WH",
-   database="Credits_DB",
+   password="testpwd!",
+   account="snowflake account",
+   warehouse="DEMO_WH",
+   database="DEMO_DB",
    schema="DBT_RAW")
    cursor = conn.cursor()
    print('SQL Connection Created')
@@ -29,9 +29,9 @@ def truncate_table():
 #Module to read csv file and load data in Snowflake. Table is created dynamically
 def load_data():
    cur,conn=create_connection()
-   titles_file = r"/Users/ridhwaan/Downloads/dbt_pipeline/Code/dbt-code/datasets/titles.csv" # <- Replace with your path.
+   titles_file = r"C:/Users/Aditya/OneDrive/Desktop/dbt_Training/Netflix_Dataset/titles.csv" # <- Replace with your path.
    titles_delimiter = "," # Replace if you're using a different delimiter.
-   credits_file=r"/Users/ridhwaan/Downloads/dbt_pipeline/Code/dbt-code/datasets/credits.csv"
+   credits_file=r"C:/Users/Aditya/OneDrive/Documents/GitHub/dbt-code/datasets/credits.csv"
    credits_delimiter=","
 
    titles_df = pd.read_csv(titles_file, sep = titles_delimiter)
