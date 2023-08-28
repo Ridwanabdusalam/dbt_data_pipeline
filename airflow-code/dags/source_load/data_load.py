@@ -8,7 +8,7 @@ import boto3
 ssm = boto3.client('ssm',region_name='us-east-1')
 s3 = boto3.client('s3',region_name='us-east-1')
 
-## Please ensure these parameters are added in the AWS Systems Manager and the EC2 instance IAM has access to s3 and the ssm services
+## These parameters must be added in the AWS Systems Manager and the EC2 instance IAM has access to s3 and the ssm services
 sf_username = ssm.get_parameter(Name='/snowflake/username', WithDecryption=True)['Parameter']['Value']
 sf_password = ssm.get_parameter(Name='/snowflake/password', WithDecryption=True)['Parameter']['Value']
 sf_account = ssm.get_parameter(Name='/snowflake/accountname', WithDecryption=True)['Parameter']['Value']
