@@ -13,8 +13,6 @@ sf_username = ssm.get_parameter(Name='/snowflake/username', WithDecryption=True)
 sf_password = ssm.get_parameter(Name='/snowflake/password', WithDecryption=True)['Parameter']['Value']
 sf_account = ssm.get_parameter(Name='/snowflake/accountname', WithDecryption=True)['Parameter']['Value']
 
-##If you have "https://my-dummy-organisation.snowflakecomputing.com/console/login" as your snowflake login url then the account_name is my-dummy-organisation
-
 def run_script():
 
    #Module to create the snowflake connection and return the connection objects
